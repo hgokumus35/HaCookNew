@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/listListingCardViewImg"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_collections"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/listListingFoodNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:text="Salad"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/listListingChefNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Moralabs"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
+                    app:layout_constraintTop_toBottomOf="@+id/listListingFoodNameText"/>
+
+                <ImageView
+                    android:id="@+id/listListingRatingStar"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ic_star"
+                    android:backgroundTint="@color/star_yellow"
+                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
+                    app:layout_constraintTop_toBottomOf="@+id/listListingChefNameText"/>
+
+                <TextView
+                    android:id="@+id/listListingRatingStarText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="3dp"
+                    android:text="4.8"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toRightOf="@+id/listListingRatingStar"
+                    app:layout_constraintTop_toBottomOf="@id/listListingChefNameText"
+                    />
+
+                <ImageView
+                    android:id="@+id/listListingTimeImg"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/ic_time"
+                    android:backgroundTint="@color/black"
+                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/listListingTimeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="11dp"
+                    android:text="20 min"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toRightOf="@+id/listListingTimeImg"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

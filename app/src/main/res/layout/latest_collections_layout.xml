@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="food"
+            type="com.moralabs.hacooknew.domain.entity.Food" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/latestColCardView"
+            android:layout_width="148dp"
+            android:layout_height="185dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                imageUrl="@{food.image}"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/latestColInnerCardView"
+                android:layout_width="49dp"
+                android:layout_height="20dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="10dp"
+                android:background="@color/white"
+                android:alpha="0.8">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/latColRatingStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="2.5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@drawable/ic_star"
+                        android:backgroundTint="@color/star_yellow"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="9dp"
+                        android:text="4.5"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        app:layout_constraintLeft_toRightOf="@id/latColRatingStar"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="44dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{food.title}"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:lines="2"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

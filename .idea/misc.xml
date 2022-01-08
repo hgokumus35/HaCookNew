@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_grid.xml" value="0.3974358974358974" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_star.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_time.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/weekly_top_gradient.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/activity_main.xml" value="0.3734375" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/fragment_collection.xml" value="0.21388888888888888" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/fragment_home.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/grid_listing_collections.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/latest_collections_layout.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/listing_type_collections.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/listview_listing_collections.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/title_collection.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/titles_home.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/top_pick_layout.xml" value="0.25" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/type_selection_collections.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/weekly_top_pick_layout.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
