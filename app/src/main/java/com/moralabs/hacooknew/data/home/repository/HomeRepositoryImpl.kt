@@ -3,10 +3,65 @@ package com.moralabs.hacooknew.data.home.repository
 import com.moralabs.hacooknew.data.home.HomeRepository
 import com.moralabs.hacooknew.data.home.local.HomeDatabase
 import com.moralabs.hacooknew.data.home.local.entity.FoodEntity
+import com.moralabs.hacooknew.data.home.local.entity.TodayFoodEntity
 import com.moralabs.hacooknew.data.home.remote.api.HomeApi
 import com.moralabs.hacooknew.domain.entity.Food
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase : HomeDatabase) : HomeRepository {
+
+    override suspend fun getTodaysFood(): Food? {
+        val currentDate = SimpleDateFormat("yyyy-MM-dd").format(Date())
+        var localFood : FoodEntity? = null
+
+        homeDatabase.todayFoodDao().get(currentDate)?.recipeId?.let {
+            localFood = homeDatabase.foodDao().get(it)
+        }
+
+        if(localFood == null){
+            val response = homeApi.randomFoods(1, "", false, "4525ee62cfd1461eac516cd6472c5194")
+
+            if(response.isSuccessful){
+                val foodDTO = response.body()?.foods?.get(0)
+
+                localFood = foodDTO?.run {
+                    FoodEntity(
+                        id = this.id ?: 0,
+                        title = this.title,
+                        summary = this.summary,
+                        dishTypes = this.dishTypes,
+                        image = this.image,
+                        readyInMinutes = this.readyInMinutes,
+                        saved = this.saved
+                    )
+                }
+
+                localFood?.let {
+                    homeDatabase.foodDao().insert(it)
+                    homeDatabase.todayFoodDao().insert(it.run {
+                        TodayFoodEntity(
+                            day = currentDate,
+                            recipeId = it.id
+                        )
+                    })
+                }
+            }
+        }
+
+        return localFood?.run {
+            Food(
+                id = this.id,
+                title = this.title,
+                summary = this.summary,
+                dishTypes = this.dishTypes,
+                image = this.image,
+                readyInMinutes = this.readyInMinutes,
+                saved = this.saved
+            )
+        }
+    }
+
     override suspend fun getRandomFood(start : Int, end : Int) : List<Food>{
         val foodCount = homeDatabase.foodDao().count()
 

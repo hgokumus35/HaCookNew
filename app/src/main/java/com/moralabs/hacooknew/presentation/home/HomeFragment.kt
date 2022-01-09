@@ -16,18 +16,18 @@ import org.koin.android.ext.android.get
 
 class HomeFragment : Fragment() {
 
- /*   private val homeViewModel: HomeViewModel = get()
+    private val homeViewModel: HomeViewModel = get()  // SIKINTI BURADA
     private var list = mutableListOf<Any>()
     private var _binding : FragmentHomeBinding? = null
-    private val binding get() = _binding!!    */
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
-/*
+ //       return inflater.inflate(R.layout.fragment_home, container, false)
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root : View = binding.root
 
@@ -37,9 +37,9 @@ class HomeFragment : Fragment() {
             homeViewModel.homeState.collect {
                 when(it){
                     is HomeUiState.Success -> {
-                        it.homeEntity.randomFood?.let { recipe ->
+                        it.homeEntity.todaysFood?.let { food ->
                             list.add("Today's Top Pick")
-                            list.add(recipe)
+                            list.add(food)
                         }
                         list.addAll(createCollections(it.homeEntity.collections))
                         list.addAll(createRecipe(it.homeEntity.randomFood))
@@ -58,14 +58,14 @@ class HomeFragment : Fragment() {
 
         homeViewModel.getLists()
         addListener()
-        return root  */
+        return root
     }
 
-    /*
+
     private fun createRecipe(randomRecipe : List<Food>) : List<Any> {
         var list = mutableListOf<Any>()
         if(randomRecipe.isNotEmpty()){
-            list.add("Weekly Top Picks")
+            list.add(getString(R.string.weekly_top_picks))
 
             var randomList = mutableListOf<RandomFoodList>()
             randomRecipe.forEachIndexed { index, food ->
@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
     private fun createCollections(collections : List<Food>) : List<Any> {
         var list = mutableListOf<Any>()
         if(collections.isNotEmpty()){
-            list.add("Latest Collections")
+            list.add(getString(R.string.latest_collections))
             list.add(collections)
         }
         return list
@@ -116,7 +116,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-    */
-
 }

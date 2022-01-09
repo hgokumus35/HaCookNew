@@ -21,7 +21,7 @@ interface FoodDao {
     fun inserAll(recipe : List<FoodEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(recipe : List<FoodEntity>)
+    fun insert(recipe : FoodEntity)
 
     @Delete
     fun delete(recipe : FoodEntity)
