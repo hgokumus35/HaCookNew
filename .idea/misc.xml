@@ -3,14 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_baseline_format_list_bulleted_24.xml" value="0.3972222222222222" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_grid.xml" value="0.3974358974358974" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23981481481481481" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_star.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/ic_time.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/item_gradient.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/drawable/weekly_top_gradient.xml" value="0.4036458333333333" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/activity_main.xml" value="0.29528535980148884" />
-        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/fragment_collection.xml" value="0.21388888888888888" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/dialog_layout.xml" value="0.5" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/fragment_collection.xml" value="0.5" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/fragment_home.xml" value="0.3875" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/grid_listing_collections.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/latest_collections.xml" value="0.3349282296650718" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/latest_collections_layout.xml" value="0.3875" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/listing_type_collections.xml" value="0.3875" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/listview_listing_collections.xml" value="0.3875" />
@@ -19,7 +24,8 @@
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/top_pick_layout.xml" value="0.25" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/type_selection_collections.xml" value="0.3875" />
         <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/layout/weekly_top_pick_layout.xml" value="0.3875" />
-        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3875" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/menu/bottom_nav_menu.xml" value="0.365" />
+        <entry key="..\:/Users/hgokumus35/AndroidStudioProjects/HaCookNew/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2317948717948718" />
       </map>
     </option>
   </component>

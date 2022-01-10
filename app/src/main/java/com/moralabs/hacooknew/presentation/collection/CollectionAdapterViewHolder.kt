@@ -1,4 +1,7 @@
 package com.moralabs.hacooknew.presentation.collection
 
-class CollectionAdapterViewHolder {
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+
+sealed class CollectionAdapterViewHolder(val binding : View) : RecyclerView.ViewHolder(binding){
 }

@@ -1,6 +1,7 @@
 package com.moralabs.hacooknew.presentation.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.moralabs.hacooknew.R
@@ -14,7 +15,7 @@ class HomeAdapter(private val homeList : List<Any>) : RecyclerView.Adapter<HomeA
                 val binding = TopPickLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 return HomeAdapterViewHolder.HomeCardViewHolderTopPick(binding)
             }
-            R.layout.latest_collections_layout -> {
+            R.layout.latest_collections -> {
                 val binding = LatestCollectionsLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 return HomeAdapterViewHolder.HomeCardViewHolderLatestCol(binding)
             }
@@ -40,6 +41,7 @@ class HomeAdapter(private val homeList : List<Any>) : RecyclerView.Adapter<HomeA
                 holder.cardItem.food = homeList[position] as? Food
             }
             is HomeAdapterViewHolder.HomeCardViewHolderWeeklyTopPick -> {
+                val list = (homeList[position] as RandomFoodList).list
                 holder.cardItem.food = homeList[position] as? Food
             }
             is HomeAdapterViewHolder.HomeTitleViewHolder -> {
@@ -50,5 +52,13 @@ class HomeAdapter(private val homeList : List<Any>) : RecyclerView.Adapter<HomeA
 
     override fun getItemCount(): Int {
         return homeList.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        when(homeList[position]){
+            is String -> return R.layout.titles_home
+            is Food -> return R.layout.top_pick_layout
+        }
+        return R.layout.titles_home
     }
 }

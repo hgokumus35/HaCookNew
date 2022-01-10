@@ -10,7 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/todayTopPickCardView"
@@ -74,7 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="18dp"
+                        android:layout_marginStart="18dp"
                         android:background="@drawable/ic_star"
                         android:backgroundTint="@color/star_yellow"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -109,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="7dp"
                         android:layout_marginBottom="15dp"
-                        android:text="@{food.readyInMinutes}"
+                        intToString="@{food.readyInMinutes}"
                         android:textSize="14sp"
                         app:layout_constraintLeft_toRightOf="@+id/timeImgView"
                         app:layout_constraintBottom_toBottomOf="parent"/>

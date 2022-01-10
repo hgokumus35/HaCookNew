@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="food"
+            type="com.moralabs.hacooknew.domain.entity.Food" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,9 +41,14 @@
                     app:layout_constraintBottom_toBottomOf="parent">
 
                     <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        imageUrl="@{food.image}"/>
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/ic_collections"/>
+                        android:background="@drawable/ic_collections" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -51,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginStart="16dp"
-                    android:text="Salad"
+                    android:text="@{food.title}"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -110,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="11dp"
-                    android:text="20 min"
+                    android:text="@{food.readyInMinutes}"
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     app:layout_constraintLeft_toRightOf="@+id/listListingTimeImg"

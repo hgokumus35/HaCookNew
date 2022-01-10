@@ -30,7 +30,7 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
                         id = this.id ?: 0,
                         title = this.title,
                         summary = this.summary,
-                        dishTypes = this.dishTypes,
+                        dishTypes = this.dishTypes?.joinToString(","),
                         image = this.image,
                         readyInMinutes = this.readyInMinutes,
                         saved = this.saved
@@ -87,7 +87,7 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
                         id = it.id ?: 0,
                         title = it.title,
                         summary = it.summary,
-                        dishTypes = it.dishTypes,
+                        dishTypes = it.dishTypes?.joinToString(","),
                         image = it.image,
                         readyInMinutes = it.readyInMinutes,
                         saved = it.saved
@@ -100,7 +100,7 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
                         id = it.id,
                         title = it.title,
                         summary = it.summary,
-                        dishTypes = it.dishTypes,
+                        dishTypes = it.dishTypes?.joinToString(","),
                         image = it.image,
                         readyInMinutes = it.readyInMinutes,
                         saved = it.saved

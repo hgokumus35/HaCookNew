@@ -8,15 +8,12 @@
             type="com.moralabs.hacooknew.domain.entity.Food" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/latestColCardView"
             android:layout_width="148dp"
             android:layout_height="185dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="24dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,6 +23,11 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 imageUrl="@{food.image}"/>
+            
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/item_gradient"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/latestColInnerCardView"
@@ -81,6 +83,4 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

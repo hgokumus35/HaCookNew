@@ -1,5 +1,6 @@
 package com.moralabs.hacooknew.presentation.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moralabs.hacooknew.domain.common.BaseResult
@@ -8,6 +9,7 @@ import com.moralabs.hacooknew.domain.entity.HomeEntity
 import com.moralabs.hacooknew.domain.usecase.HomeUseCase
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.lang.Math.log
 
 class HomeViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
     private val _homeState : MutableStateFlow<HomeUiState> = MutableStateFlow(HomeUiState.Idle)

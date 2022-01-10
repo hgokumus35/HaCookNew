@@ -1,6 +1,7 @@
 package com.moralabs.hacooknew.util
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -17,6 +18,12 @@ class BindableUtil {
                     .load(imageUrl)
                     .into(view)
             }
+        }
+
+        @BindingAdapter("intToString")
+        @JvmStatic
+        fun intToString(view : TextView, intToString : Int?){
+            view.text = intToString.toString()
         }
     }
 }

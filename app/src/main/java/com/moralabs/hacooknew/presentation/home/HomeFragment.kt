@@ -1,6 +1,7 @@
 package com.moralabs.hacooknew.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,8 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.get
 
 class HomeFragment : Fragment() {
+
+    private lateinit var v : View
 
     private val homeViewModel: HomeViewModel = get()  // SIKINTI BURADA
     private var list = mutableListOf<Any>()
@@ -31,7 +34,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root : View = binding.root
 
-        _binding?.viewModel = homeViewModel
+        binding?.viewModel = homeViewModel
 
         lifecycleScope.launch {
             homeViewModel.homeState.collect {
@@ -43,6 +46,8 @@ class HomeFragment : Fragment() {
                         }
                         list.addAll(createCollections(it.homeEntity.collections))
                         list.addAll(createRecipe(it.homeEntity.randomFood))
+                        Log.d("HOME","List size : ${list.size}" )
+
                         binding.homeRecView.adapter = HomeAdapter(list)
                     }
                     is HomeUiState.PageSuccess -> {
@@ -115,5 +120,10 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        v = view
     }
 }
