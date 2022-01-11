@@ -8,9 +8,9 @@
     <string name="home_title">Home</string>
     <string name="collection_title">Collection</string>
 
-    <string name="type_fruit">Fruit</string>
-    <string name="type_salad">Salad</string>
-    <string name="type_breakfast">Breakfast</string>
-    <string name="type_dinner">Dinner</string>
-    <string name="type_lunch">Lunch</string>
+    <string name="rating_text">4.5</string>
+    <string name="mora_labs">Moralabs</string>
+    <string name="minutes">minutes</string>
+    <string name="us_dollar">USD</string>
+    <string name="description">Description</string>
 </resources>

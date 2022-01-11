@@ -70,7 +70,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="3dp"
                     android:fontFamily="@font/avenir_500"
-                    android:text="4.5"
+                    android:text="@string/rating_text"
                     android:textSize="14sp"
                     android:textColor="@color/white"
                     app:layout_constraintLeft_toRightOf="@+id/weekly_top_ratingStar"

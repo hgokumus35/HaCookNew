@@ -89,7 +89,7 @@
                         android:layout_marginTop="6dp"
                         android:layout_marginStart="6dp"
                         android:fontFamily="@font/avenir_800"
-                        android:text="4.8"
+                        android:text="@string/rating_text"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/black"

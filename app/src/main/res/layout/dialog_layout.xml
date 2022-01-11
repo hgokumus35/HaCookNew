@@ -57,7 +57,7 @@
                                 android:layout_marginTop="1dp"
                                 android:layout_marginStart="20dp"
                                 android:fontFamily="@font/avenir_500"
-                                android:text="Moralabs"
+                                android:text="@string/mora_labs"
                                 android:textSize="14sp"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/dialogTitleText"/>
@@ -80,7 +80,7 @@
                                 android:layout_marginStart="9dp"
                                 android:layout_marginTop="2dp"
                                 android:fontFamily="@font/avenir_400"
-                                android:text="4.8"
+                                android:text="@string/rating_text"
                                 android:textSize="12sp"
                                 app:layout_constraintTop_toBottomOf="@id/dialogMoraText"
                                 app:layout_constraintStart_toEndOf="@+id/dialogRatingStar"/>
@@ -144,7 +144,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="7dp"
                                         android:fontFamily="@font/avenir_400"
-                                        android:text="minutes"
+                                        android:text="@string/minutes"
                                         android:textSize="14sp" />
                                 </LinearLayout>
 
@@ -176,7 +176,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="7dp"
                                         android:fontFamily="@font/avenir_400"
-                                        android:text="USD"
+                                        android:text="@string/us_dollar"
                                         android:textSize="14sp" />
                             </LinearLayout>
 
@@ -189,7 +189,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/open_sans_700"
-                        android:text="Description"
+                        android:text="@string/description"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:textColor="@color/black"
