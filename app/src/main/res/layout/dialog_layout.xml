@@ -42,6 +42,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="11dp"
                                 android:layout_marginStart="20dp"
+                                android:fontFamily="@font/open_sans_700"
                                 android:textSize="16sp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold"
@@ -55,6 +56,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="1dp"
                                 android:layout_marginStart="20dp"
+                                android:fontFamily="@font/avenir_500"
                                 android:text="Moralabs"
                                 android:textSize="14sp"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -77,6 +79,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="9dp"
                                 android:layout_marginTop="2dp"
+                                android:fontFamily="@font/avenir_400"
                                 android:text="4.8"
                                 android:textSize="12sp"
                                 app:layout_constraintTop_toBottomOf="@id/dialogMoraText"
@@ -131,6 +134,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="20dp"
                                         android:layout_marginStart="7dp"
+                                        android:fontFamily="@font/open_sans_700"
                                         android:textColor="@color/black"
                                         android:textSize="16sp"
                                         android:textStyle="bold"/>
@@ -139,6 +143,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="7dp"
+                                        android:fontFamily="@font/avenir_400"
                                         android:text="minutes"
                                         android:textSize="14sp" />
                                 </LinearLayout>
@@ -160,6 +165,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="20dp"
                                         android:layout_marginStart="7dp"
+                                        android:fontFamily="@font/open_sans_700"
                                         android:text="4"
                                         android:textColor="@color/black"
                                         android:textSize="16sp"
@@ -169,6 +175,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="7dp"
+                                        android:fontFamily="@font/avenir_400"
                                         android:text="USD"
                                         android:textSize="14sp" />
                             </LinearLayout>
@@ -181,6 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
+                        android:fontFamily="@font/open_sans_700"
                         android:text="Description"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -195,6 +203,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="11dp"
                         android:layout_marginBottom="26dp"
+                         android:fontFamily="@font/avenir_500"
                         android:textSize="16sp"
                         android:textColor="@color/black"
                         app:layout_constraintStart_toStartOf="parent"

@@ -28,6 +28,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="24dp"
                 android:text="@string/collection_title"
+                android:fontFamily="@font/open_sans_700"
                 android:textSize="36sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
