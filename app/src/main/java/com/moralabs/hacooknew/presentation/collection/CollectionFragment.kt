@@ -29,9 +29,6 @@ class CollectionFragment : Fragment() {
     private val binding get() = _binding!!
     private var collectionList = mutableListOf<Any>()
 
-    private lateinit var gridViewImgBtn : ImageView
-    private lateinit var listviewImgBtn : ImageView
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,7 +50,6 @@ class CollectionFragment : Fragment() {
                 when(it){
                     is CollectionUiState.Success -> {
                         collectionList.addAll(it.collectionEntity.randomFood)
-          //              list.addAll(createCollections(it.collectionEntity.collections))
 
                         binding.mainCollectionRecView.adapter = HomogeneousRecyclerAdapter<ListviewListingCollectionsBinding,
                                 Food>(collectionList as List<Food>, R.layout.listview_listing_collections, BR.food){
@@ -84,6 +80,26 @@ class CollectionFragment : Fragment() {
             }
         }
 
+
+        binding.fruitButton.setOnClickListener {
+
+        }
+
+        binding.saladButton.setOnClickListener {
+
+        }
+
+        binding.breakfastButton.setOnClickListener {
+
+        }
+
+        binding.dinnerButton.setOnClickListener {
+
+        }
+
+        binding.lunchButton.setOnClickListener {
+
+        }
 
 
         collectionViewModel.getLists()

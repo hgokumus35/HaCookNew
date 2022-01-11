@@ -128,6 +128,22 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
 
     }
 
+    override suspend fun getFilteredList(search : String) : List<Food>{
+        val list : List<FoodEntity> = homeDatabase.foodDao().getFilteredList(search)
+        return list.map {
+            Food(
+                id = it.id,
+                title = it.title,
+                summary = it.summary,
+                dishTypes = it.dishTypes,
+                image = it.image,
+                readyInMinutes = it.readyInMinutes,
+                saved = it.saved
+            )
+            return listOf()
+        }
+    }
+
 
 
 

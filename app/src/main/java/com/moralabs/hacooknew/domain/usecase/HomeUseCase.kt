@@ -47,4 +47,14 @@ class HomeUseCase(private val homeRepository : HomeRepository) {
             )
         }
     }
+
+    fun getFilteredList(search : String) : Flow<BaseResult<List<Food>, RandomFoodResponse>>{
+        return flow {
+            emit(
+                BaseResult.Success(
+                    homeRepository.getFilteredList(search)
+                )
+            )
+        }
+    }
 }
