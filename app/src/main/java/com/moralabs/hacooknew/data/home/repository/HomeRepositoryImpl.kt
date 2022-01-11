@@ -144,9 +144,22 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
         }
     }
 
-
-
-
+    override suspend fun addFood(food : Food) : Food {
+        food?.let {
+            homeDatabase.foodDao().insert(it.run { FoodEntity(
+                id = this.id!!,
+                title = this.title,
+                summary = this.summary,
+                dishTypes = this.dishTypes,
+                image = this.image,
+          //      spoonacularScore = this.spoonacularScore,
+                readyInMinutes = this.readyInMinutes,
+          //      pricePerServing = this.pricePerServing,
+                saved = this.saved
+            ) })
+        }
+        return food
+    }
 }
 
 

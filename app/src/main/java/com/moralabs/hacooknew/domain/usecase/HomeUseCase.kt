@@ -38,7 +38,7 @@ class HomeUseCase(private val homeRepository : HomeRepository) {
         }
     }
 
-    fun getCollections(page : Int) : Flow<BaseResult<List<Food>, RandomFoodResponse>>{
+    fun getCollections(page : Int) : Flow<BaseResult<List<Food>, Any>>{
         return flow{
             emit(
                 BaseResult.Success(
@@ -48,11 +48,21 @@ class HomeUseCase(private val homeRepository : HomeRepository) {
         }
     }
 
-    fun getFilteredList(search : String) : Flow<BaseResult<List<Food>, RandomFoodResponse>>{
+    fun getFilteredList(search : String) : Flow<BaseResult<List<Food>, Any>>{
         return flow {
             emit(
                 BaseResult.Success(
                     homeRepository.getFilteredList(search)
+                )
+            )
+        }
+    }
+
+    fun addFood(food : Food) : Flow<BaseResult<Food, Any>>{
+        return flow {
+            emit(
+                BaseResult.Success(
+                    homeRepository.addFood(food)
                 )
             )
         }

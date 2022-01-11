@@ -29,6 +29,9 @@ class CollectionFragment : Fragment() {
     private val binding get() = _binding!!
     private var collectionList = mutableListOf<Any>()
 
+    private var _filterValue : Boolean = false
+    private var _filterItem : String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,6 +41,23 @@ class CollectionFragment : Fragment() {
         val root : View = binding.root
 
         _binding?.viewModel = collectionViewModel
+
+
+        var categoryList : List<Food> =
+            listOf(
+                Food(title = "fruit"),
+                Food(title = "salad"),
+                Food(title = "cookie"),
+                Food(title = "milk"),
+                Food(title = "cream"),)
+
+        binding.categoryRecView.adapter = HomogeneousRecyclerAdapter<FragmentCollectionBinding,
+                Food>(categoryList as List<Food>,
+            R.layout.category_type_layout, BR.food){
+            it.title?.let { title ->
+                changeFilter(title)
+            }
+        }
 
         binding.mainCollectionRecView.layoutManager = LinearLayoutManager(
             requireContext(),
@@ -81,27 +101,6 @@ class CollectionFragment : Fragment() {
         }
 
 
-        binding.fruitButton.setOnClickListener {
-
-        }
-
-        binding.saladButton.setOnClickListener {
-
-        }
-
-        binding.breakfastButton.setOnClickListener {
-
-        }
-
-        binding.dinnerButton.setOnClickListener {
-
-        }
-
-        binding.lunchButton.setOnClickListener {
-
-        }
-
-
         collectionViewModel.getLists()
         addListener()
         return root
@@ -132,6 +131,18 @@ class CollectionFragment : Fragment() {
         return list
     }
 
+    private fun changeFilter(search : String){
+        if(_filterValue && _filterItem == search){
+            collectionViewModel.getLists()
+            _filterValue = false
+        }
+        else{
+            collectionViewModel.filterCategory(search)
+            _filterValue = true
+        }
+        _filterItem = search
+    }
+
     private fun addListener(){
         binding.mainCollectionRecView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -146,6 +157,7 @@ class CollectionFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
 
 

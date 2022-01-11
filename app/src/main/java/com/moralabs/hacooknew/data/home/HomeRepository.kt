@@ -7,4 +7,5 @@ interface HomeRepository {
     suspend fun getRandomFood(start : Int, end : Int) : List<Food>
     suspend fun getCollections(page : Int) : List<Food>
     suspend fun getFilteredList(search : String) : List<Food>
+    suspend fun addFood(food : Food) : Food
 }

@@ -50,10 +50,30 @@ class HomeViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
             }
         }
     }
+
+    fun addFood(food : Food){
+        if(_homeState.value != HomeUiState.Loading){
+            viewModelScope.launch {
+                homeUseCase.addFood(food)
+                    .onStart {
+                        _homeState.value = HomeUiState.Loading
+                    }
+                    .catch { exception ->
+                        _homeState.value = HomeUiState.Error(exception.message)
+                    }
+                    .collect { baseResult ->
+                        when(baseResult){
+                            is BaseResult.Success -> _homeState.value = HomeUiState.Inserted(baseResult.data)
+                        }
+                    }
+            }
+        }
+    }
 }
 
 sealed class HomeUiState{
     data class Success(val homeEntity : HomeEntity) : HomeUiState()
+    data class Inserted(val food : Food) : HomeUiState()
     data class Error(val error : String?) : HomeUiState()
     data class PageSuccess(val foodList : List<Food>) : HomeUiState()
     object Idle : HomeUiState()
