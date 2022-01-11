@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="food"
+            type="com.moralabs.hacooknew.domain.entity.Food" />
     </data>
 
     <GridLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="none">
 
@@ -27,9 +29,13 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    imageUrl="@{food.image}"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/ic_collections"
-                    android:src="@drawable/weekly_top_gradient"/>
+                    android:src="@drawable/item_gradient"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -38,7 +44,7 @@
                     android:layout_marginEnd="33dp"
                     android:layout_marginBottom="27dp"
                     android:lines="2"
-                    android:text="Salad"
+                    android:text="@{food.title}"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -84,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="9dp"
                     android:layout_marginStart="8dp"
-                    android:text="20 min"
+                    intToString="@{food.readyInMinutes}"
                     android:textSize="12sp"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"

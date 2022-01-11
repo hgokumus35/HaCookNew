@@ -19,8 +19,8 @@ class HomeUseCase(private val homeRepository : HomeRepository) {
                 BaseResult.Success(
                     HomeEntity(
                         todaysFood = homeRepository.getTodaysFood(),
-                        randomFood = mutableListOf(),
-                        collections = mutableListOf()
+                        randomFood = homeRepository.getRandomFood(0,10),
+                        collections = homeRepository.getCollections(1)
                     )
                 )
             )

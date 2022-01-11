@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var v : View
 
-    private val homeViewModel: HomeViewModel = get()  // SIKINTI BURADA
+    private val homeViewModel: HomeViewModel = get()
     private var list = mutableListOf<Any>()
     private var _binding : FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root : View = binding.root
 
-        binding?.viewModel = homeViewModel
+        _binding?.viewModel = homeViewModel
 
         lifecycleScope.launch {
             homeViewModel.homeState.collect {
@@ -46,7 +46,6 @@ class HomeFragment : Fragment() {
                         }
                         list.addAll(createCollections(it.homeEntity.collections))
                         list.addAll(createRecipe(it.homeEntity.randomFood))
-                        Log.d("HOME","List size : ${list.size}" )
 
                         binding.homeRecView.adapter = HomeAdapter(list)
                     }
@@ -122,8 +121,4 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        v = view
-    }
 }

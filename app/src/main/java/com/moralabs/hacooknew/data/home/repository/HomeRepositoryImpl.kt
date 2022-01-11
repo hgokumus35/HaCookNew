@@ -111,17 +111,23 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
         return listOf()
     }
 
-    override suspend fun getCollections(page : Int) : List<Food> = homeDatabase.foodDao().getCollections().map {
-        Food(
-            id = it.id,
-            title = it.title,
-            summary = it.summary,
-            dishTypes = it.dishTypes,
-            image = it.image,
-            readyInMinutes = it.readyInMinutes,
-            saved = it.saved
-        )
+    override suspend fun getCollections(page : Int) : List<Food> {
+        val list: List<FoodEntity> = homeDatabase.foodDao().getCollections()
+        return list.map {
+            Food(
+                id = it.id,
+                title = it.title,
+                summary = it.summary,
+                dishTypes = it.dishTypes,
+                image = it.image,
+                readyInMinutes = it.readyInMinutes,
+                saved = it.saved
+            )
+            return listOf()
+        }
+
     }
+
 
 
 

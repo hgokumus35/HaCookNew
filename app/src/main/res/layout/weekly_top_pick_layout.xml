@@ -4,7 +4,10 @@
 
     <data>
         <variable
-            name="food"
+            name="leftFood"
+            type="com.moralabs.hacooknew.domain.entity.Food" />
+        <variable
+            name="rightFood"
             type="com.moralabs.hacooknew.domain.entity.Food" />
     </data>
 
@@ -12,25 +15,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="155dp"
+            android:layout_width="0dp"
             android:layout_height="155dp"
             app:cardCornerRadius="12dp"
             android:layout_weight="0.5">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                imageUrl="@{leftFood.image}" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    imageUrl="@{food.image}"
-                    />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/item_background"/>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="28dp"
@@ -38,6 +42,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginTop="8dp"
                     app:cardCornerRadius="90dp"
+                    android:layout_gravity="right"
                     android:alpha="0.8"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -57,165 +62,163 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="33dp"
                     android:layout_marginBottom="27dp"
+                    android:layout_gravity="bottom"
                     android:lines="2"
-                    android:text="@{food.title}"
+                    android:text="@{leftFood.title}"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent" />
-
-                <ImageView
-                    android:id="@+id/weekly_top_ratingStar1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/ic_star"
-                    android:backgroundTint="@color/star_yellow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent" />
-
-                <TextView
-                    android:id="@+id/weekly_top_ratingStarText1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginStart="3dp"
-                    android:text="4.5"
-                    android:textSize="14sp"
-                    android:textColor="@color/white"
-                    app:layout_constraintLeft_toRightOf="@+id/weekly_top_ratingStar1"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <ImageView
-                    android:id="@+id/weekly_top_time1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/ic_time"
-                    android:backgroundTint="@color/time_green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/weekly_top_ratingStarText1"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="9dp"
-                    android:layout_marginStart="8dp"
-                    android:text="@{food.readyInMinutes}"
-                    android:textSize="12sp"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/weekly_top_time1"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="155dp"
-            android:layout_height="155dp"
-            app:cardCornerRadius="12dp"
-            android:layout_weight="0.5">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    imageUrl="@{food.image}"
+                    android:ellipsize="end"
                     />
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="90dp"
-                    android:alpha="0.8"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/ic_collections"
-                        android:backgroundTint="@color/weekly_top_add_collection" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginBottom="27dp"
-                    android:lines="2"
-                    android:text="@{food.title}"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent" />
 
                 <ImageView
                     android:id="@+id/weekly_top_ratingStar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="bottom"
                     android:layout_marginStart="14dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/ic_star"
-                    android:backgroundTint="@color/star_yellow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent" />
+                    android:backgroundTint="@color/star_yellow" />
 
                 <TextView
                     android:id="@+id/weekly_top_ratingStarText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_gravity="bottom"
                     android:text="4.5"
+                    android:maxLines="1"
                     android:textSize="14sp"
-                    android:textColor="@color/white"
-                    app:layout_constraintLeft_toRightOf="@+id/weekly_top_ratingStar"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/weekly_top_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginBottom="10dp"
+                    android:layout_gravity="bottom"
                     android:background="@drawable/ic_time"
-                    android:backgroundTint="@color/time_green"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/weekly_top_ratingStarText"/>
+                    android:backgroundTint="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="9dp"
-                    android:layout_marginStart="8dp"
-                    android:text="@{food.readyInMinutes}"
+                    android:layout_marginStart="91dp"
+                    android:layout_gravity="bottom"
+                    android:maxLines="1"
+                    intToString="@{leftFood.readyInMinutes}"
                     android:textSize="12sp"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/weekly_top_time"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                    android:textColor="@color/white"/>
 
         </com.google.android.material.card.MaterialCardView>
 
 
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="155dp"
+            android:layout_marginStart="17dp"
+            app:cardCornerRadius="12dp"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                imageUrl="@{rightFood.image}" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:src="@drawable/item_background"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="90dp"
+                android:layout_gravity="right"
+                android:alpha="0.8"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_collections"
+                    android:backgroundTint="@color/weekly_top_add_collection" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="33dp"
+                android:layout_marginBottom="27dp"
+                android:layout_gravity="bottom"
+                android:lines="2"
+                android:text="@{rightFood.title}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                />
+
+            <ImageView
+                android:id="@+id/weekly_top_ratingStar1"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/ic_star"
+                android:backgroundTint="@color/star_yellow" />
+
+            <TextView
+                android:id="@+id/weekly_top_ratingStarText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_gravity="bottom"
+                android:text="4.5"
+                android:maxLines="1"
+                android:textSize="14sp"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/weekly_top_time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="68dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/ic_time"
+                android:backgroundTint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                android:layout_marginStart="91dp"
+                android:layout_gravity="bottom"
+                android:maxLines="1"
+                intToString="@{rightFood.readyInMinutes}"
+                android:textSize="12sp"
+                android:textColor="@color/white"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
     </LinearLayout>
+
 </layout>

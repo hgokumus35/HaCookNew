@@ -42,7 +42,8 @@ class HomeAdapter(private val homeList : List<Any>) : RecyclerView.Adapter<HomeA
             }
             is HomeAdapterViewHolder.HomeCardViewHolderWeeklyTopPick -> {
                 val list = (homeList[position] as RandomFoodList).list
-                holder.cardItem.food = homeList[position] as? Food
+                holder.cardItem.leftFood = if(list?.size ?: 0 > 0) list?.get(0) else null
+                holder.cardItem.rightFood = if(list?.size ?: 0 > 1) list?.get(1) else null
             }
             is HomeAdapterViewHolder.HomeTitleViewHolder -> {
                 holder.titleItem.titleHomeText.text = homeList[position] as? String
@@ -58,6 +59,8 @@ class HomeAdapter(private val homeList : List<Any>) : RecyclerView.Adapter<HomeA
         when(homeList[position]){
             is String -> return R.layout.titles_home
             is Food -> return R.layout.top_pick_layout
+    //        is RandomFoodList -> return R.layout.latest_collections
+            is RandomFoodList -> return R.layout.weekly_top_pick_layout
         }
         return R.layout.titles_home
     }

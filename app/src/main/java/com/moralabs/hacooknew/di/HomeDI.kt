@@ -6,6 +6,7 @@ import com.moralabs.hacooknew.data.home.local.HomeDatabase
 import com.moralabs.hacooknew.data.home.remote.api.HomeApi
 import com.moralabs.hacooknew.data.home.repository.HomeRepositoryImpl
 import com.moralabs.hacooknew.domain.usecase.HomeUseCase
+import com.moralabs.hacooknew.presentation.collection.CollectionViewModel
 import com.moralabs.hacooknew.presentation.home.HomeViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,6 +20,7 @@ class HomeDI {
     companion object{
         val module = module {
             viewModel { HomeViewModel(get()) }
+            viewModel { CollectionViewModel(get())}
 
             single<HomeApi> {
                 val interceptor = HttpLoggingInterceptor()
