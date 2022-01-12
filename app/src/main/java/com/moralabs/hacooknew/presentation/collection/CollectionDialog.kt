@@ -3,14 +3,10 @@ package com.moralabs.hacooknew.presentation.collection
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import android.widget.TextView
 import androidx.core.text.parseAsHtml
 import com.bumptech.glide.Glide
-import com.moralabs.hacooknew.R
 import com.moralabs.hacooknew.databinding.DialogLayoutBinding
-import com.moralabs.hacooknew.databinding.FragmentCollectionBinding
 import com.moralabs.hacooknew.domain.entity.Food
-import org.koin.android.ext.android.get
 
 class CollectionDialog(context : Context, val food: Food) : Dialog(context) {
 

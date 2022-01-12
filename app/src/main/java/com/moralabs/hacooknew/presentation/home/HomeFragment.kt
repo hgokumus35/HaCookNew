@@ -69,7 +69,6 @@ class HomeFragment : Fragment() {
         }
 
         homeViewModel.getLists()
-  //      homeViewModel.getCollections()
         addListener()
         return root
     }
@@ -129,5 +128,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

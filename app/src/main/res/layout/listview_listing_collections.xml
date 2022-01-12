@@ -137,7 +137,7 @@
                             android:id="@+id/listListingTimeText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="4dp"
                             android:layout_marginBottom="11dp"
                             intToString="@{food.readyInMinutes}"
                             android:fontFamily="@font/avenir_500"

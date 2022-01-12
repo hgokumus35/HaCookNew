@@ -2,13 +2,10 @@ package com.moralabs.hacooknew.presentation.collection
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.moralabs.hacooknew.data.home.local.entity.FoodEntity
 import com.moralabs.hacooknew.domain.common.BaseResult
-import com.moralabs.hacooknew.domain.entity.CollectionEntity
 import com.moralabs.hacooknew.domain.entity.Food
 import com.moralabs.hacooknew.domain.entity.HomeEntity
 import com.moralabs.hacooknew.domain.usecase.HomeUseCase
-import com.moralabs.hacooknew.presentation.home.HomeUiState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -93,7 +90,6 @@ class CollectionViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
 
 sealed class CollectionUiState {
     data class Success(val collectionEntity : HomeEntity) : CollectionUiState()
-    data class SuccessCollection(val collectionEntity : CollectionEntity) : CollectionUiState()
     data class GetFoodSuccess(val getFood : List<*>) : CollectionUiState()
     data class FilterSuccess(val listFood : List<Food>) : CollectionUiState() // TODO : kontrol edilecek
     data class Error(val error : String?) : CollectionUiState()

@@ -1,7 +1,6 @@
 package com.moralabs.hacooknew.presentation.home
 
 import android.view.LayoutInflater
-import android.view.View
 import com.moralabs.hacooknew.BR
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
