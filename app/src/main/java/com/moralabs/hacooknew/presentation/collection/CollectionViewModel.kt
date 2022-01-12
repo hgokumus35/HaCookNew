@@ -95,7 +95,7 @@ sealed class CollectionUiState {
     data class Success(val collectionEntity : HomeEntity) : CollectionUiState()
     data class SuccessCollection(val collectionEntity : CollectionEntity) : CollectionUiState()
     data class GetFoodSuccess(val getFood : List<*>) : CollectionUiState()
-    data class FilterSuccess(val listFood : List<*>) : CollectionUiState() // TODO : kontrol edilecek
+    data class FilterSuccess(val listFood : List<Food>) : CollectionUiState() // TODO : kontrol edilecek
     data class Error(val error : String?) : CollectionUiState()
     data class PageSuccess(val foodList : List<Food>) : CollectionUiState()
     object Idle : CollectionUiState()

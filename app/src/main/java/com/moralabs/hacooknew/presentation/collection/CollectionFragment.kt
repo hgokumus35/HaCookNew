@@ -1,5 +1,6 @@
 package com.moralabs.hacooknew.presentation.collection
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,6 +33,7 @@ class CollectionFragment : Fragment() {
     private var _filterValue : Boolean = false
     private var _filterItem : String = ""
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -69,6 +71,17 @@ class CollectionFragment : Fragment() {
                                 Food>(collectionList as List<Food>, R.layout.listview_listing_collections, BR.food){
                             CollectionDialog(requireContext(), it).show()
                         }
+                        binding.mainCollectionRecView.adapter?.notifyDataSetChanged()
+
+                    }
+                    is CollectionUiState.FilterSuccess -> {
+
+                        binding.mainCollectionRecView.adapter = HomogeneousRecyclerAdapter<ListviewListingCollectionsBinding,
+                                Food>(it.listFood, R.layout.listview_listing_collections, BR.food){
+                            CollectionDialog(requireContext(), it).show()
+                        }
+
+                        binding.mainCollectionRecView.adapter?.notifyDataSetChanged()
 
                     }
                 }

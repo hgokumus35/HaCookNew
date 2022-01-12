@@ -53,7 +53,7 @@ class HomeViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
 
     fun getCollections(){
         viewModelScope.launch {
-            homeUseCase.getCollections(5)
+            homeUseCase.getCollections(0)
                 .onStart {
                     _homeState.value = HomeUiState.Loading
                 }

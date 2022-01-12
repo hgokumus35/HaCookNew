@@ -32,6 +32,6 @@ interface FoodDao {
     @Query("SELECT * FROM Recipe WHERE saved = 1")
     fun getCollections() : List<FoodEntity>
 
-    @Query("SELECT * FROM Recipe WHERE id LIKE '%' || :search || '%'")
+    @Query("SELECT * FROM Recipe WHERE summary LIKE '%' || :search || '%'")
     fun getFilteredList(search : String) : List<FoodEntity>
 }
