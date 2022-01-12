@@ -51,8 +51,24 @@ class HomeViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
         }
     }
 
+    fun getCollections(){
+        viewModelScope.launch {
+            homeUseCase.getCollections(5)
+                .onStart {
+                    _homeState.value = HomeUiState.Loading
+                }
+                .catch { exception ->
+                    _homeState.value = HomeUiState.Error(exception.message)
+                }
+                .collect { baseResult ->
+                    when(baseResult){
+                        is BaseResult.Success -> _homeState.value = HomeUiState.PageSuccess(baseResult.data)
+                    }
+                }
+        }
+    }
+
     fun addFood(food : Food){
-        if(_homeState.value != HomeUiState.Loading){
             viewModelScope.launch {
                 homeUseCase.addFood(food)
                     .onStart {
@@ -68,7 +84,6 @@ class HomeViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
                     }
             }
         }
-    }
 }
 
 sealed class HomeUiState{

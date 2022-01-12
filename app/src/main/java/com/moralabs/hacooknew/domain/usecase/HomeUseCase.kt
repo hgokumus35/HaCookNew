@@ -20,7 +20,7 @@ class HomeUseCase(private val homeRepository : HomeRepository) {
                     HomeEntity(
                         todaysFood = homeRepository.getTodaysFood(),
                         randomFood = homeRepository.getRandomFood(0,10),
-                        collections = homeRepository.getCollections(1)
+                        collectionsHome = homeRepository.getCollections(5)
                     )
                 )
             )

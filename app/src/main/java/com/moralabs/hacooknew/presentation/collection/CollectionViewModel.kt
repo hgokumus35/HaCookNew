@@ -71,10 +71,30 @@ class CollectionViewModel(private val homeUseCase : HomeUseCase) : ViewModel() {
             }
         }
     }
+
+    fun getFood(){
+        viewModelScope.launch {
+            homeUseCase.getCollections(0)
+                .onStart {
+                    _collectionState.value = CollectionUiState.Loading
+                }
+                .catch { exception ->
+                    _collectionState.value = CollectionUiState.Error(exception.message)
+                }
+                .collect { baseResult ->
+                    when(baseResult){
+                        is BaseResult.Success -> _collectionState.value = CollectionUiState.GetFoodSuccess(baseResult.data)
+                    }
+                }
+        }
+    }
+
 }
 
 sealed class CollectionUiState {
     data class Success(val collectionEntity : HomeEntity) : CollectionUiState()
+    data class SuccessCollection(val collectionEntity : CollectionEntity) : CollectionUiState()
+    data class GetFoodSuccess(val getFood : List<*>) : CollectionUiState()
     data class FilterSuccess(val listFood : List<*>) : CollectionUiState() // TODO : kontrol edilecek
     data class Error(val error : String?) : CollectionUiState()
     data class PageSuccess(val foodList : List<Food>) : CollectionUiState()

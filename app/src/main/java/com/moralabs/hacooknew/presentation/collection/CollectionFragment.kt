@@ -51,13 +51,6 @@ class CollectionFragment : Fragment() {
                 Food(title = "milk"),
                 Food(title = "cream"),)
 
-        binding.categoryRecView.adapter = HomogeneousRecyclerAdapter<FragmentCollectionBinding,
-                Food>(categoryList as List<Food>,
-            R.layout.category_type_layout, BR.food){
-            it.title?.let { title ->
-                changeFilter(title)
-            }
-        }
 
         binding.mainCollectionRecView.layoutManager = LinearLayoutManager(
             requireContext(),
@@ -69,12 +62,14 @@ class CollectionFragment : Fragment() {
             collectionViewModel.collectionState.collect {
                 when(it){
                     is CollectionUiState.Success -> {
-                        collectionList.addAll(it.collectionEntity.randomFood)
+                        collectionList.clear()
+                        collectionList.addAll(it.collectionEntity.collectionsHome)
 
                         binding.mainCollectionRecView.adapter = HomogeneousRecyclerAdapter<ListviewListingCollectionsBinding,
                                 Food>(collectionList as List<Food>, R.layout.listview_listing_collections, BR.food){
                             CollectionDialog(requireContext(), it).show()
                         }
+
                     }
                 }
             }
@@ -100,6 +95,13 @@ class CollectionFragment : Fragment() {
             }
         }
 
+        binding.categoryRecView.adapter = HomogeneousRecyclerAdapter<FragmentCollectionBinding,
+                Food>(categoryList,
+            R.layout.category_type_layout, BR.food){
+            it.title?.let { title ->
+                changeFilter(title)
+            }
+        }
 
         collectionViewModel.getLists()
         addListener()
@@ -107,29 +109,6 @@ class CollectionFragment : Fragment() {
    //       return inflater.inflate(R.layout.fragment_collection, container, false)
     }
 
-    private fun createCollections(collections : List<Food>) : List<Any> {
-        var list = mutableListOf<Any>()
-        if(collections.isNotEmpty()){
-            list.add(collections)
-        }
-        return list
-    }
-
-    private fun createRecipe(randomRecipe : List<Food>) : List<Any> {
-        var list = mutableListOf<Any>()
-        if(randomRecipe.isNotEmpty()){
-            var randomList = mutableListOf<RandomFoodList>()
-            randomRecipe.forEachIndexed { index, food ->
-                if(index % 2 == 0){
-                    randomList.add(RandomFoodList(mutableListOf(food)))
-                }else{
-                    randomList[randomList.size - 1].list?.add(food)
-                }
-            }
-            list.addAll(randomList)
-        }
-        return list
-    }
 
     private fun changeFilter(search : String){
         if(_filterValue && _filterItem == search){

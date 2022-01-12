@@ -44,10 +44,18 @@ class HomeFragment : Fragment() {
                             list.add("Today's Top Pick")
                             list.add(food)
                         }
-                        list.addAll(createCollections(it.homeEntity.collections))
+
+                        list.addAll(createCollections(it.homeEntity.collectionsHome))
                         list.addAll(createRecipe(it.homeEntity.randomFood))
 
-                        binding.homeRecView.adapter = HomeAdapter(list)
+                        binding.homeRecView.adapter = HomeAdapter(list, object : itemClickListener{
+                            override fun onItemSelected(foodItem : Any?) {
+                                foodItem as Food
+                                homeViewModel.addFood(foodItem)
+                                foodItem.saved = true
+                                Log.d("tag", foodItem.title.toString())
+                            }
+                        })
                     }
                     is HomeUiState.PageSuccess -> {
                         var beforeCount = list.size
@@ -61,6 +69,7 @@ class HomeFragment : Fragment() {
         }
 
         homeViewModel.getLists()
+  //      homeViewModel.getCollections()
         addListener()
         return root
     }

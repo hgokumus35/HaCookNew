@@ -123,7 +123,6 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
                 readyInMinutes = it.readyInMinutes,
                 saved = it.saved
             )
-            return listOf()
         }
 
     }
@@ -140,7 +139,6 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
                 readyInMinutes = it.readyInMinutes,
                 saved = it.saved
             )
-            return listOf()
         }
     }
 
@@ -152,9 +150,7 @@ class HomeRepositoryImpl(private var homeApi : HomeApi, private var homeDatabase
                 summary = this.summary,
                 dishTypes = this.dishTypes,
                 image = this.image,
-          //      spoonacularScore = this.spoonacularScore,
                 readyInMinutes = this.readyInMinutes,
-          //      pricePerServing = this.pricePerServing,
                 saved = this.saved
             ) })
         }

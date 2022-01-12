@@ -14,7 +14,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="10dp"
@@ -25,102 +25,142 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/listListingCardViewImg"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="8dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                <LinearLayout
+                    android:id="@+id/leftLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/rightLinearLayout"
                     app:layout_constraintBottom_toBottomOf="parent">
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        imageUrl="@{food.image}"/>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/listListingCardViewImg"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                </com.google.android.material.card.MaterialCardView>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            imageUrl="@{food.image}"/>
 
-                <TextView
-                    android:id="@+id/listListingFoodNameText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/open_sans_700"
-                    android:text="@{food.title}"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    </com.google.android.material.card.MaterialCardView>
 
-                <TextView
-                    android:id="@+id/listListingChefNameText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/avenir_500"
-                    android:text="@string/mora_labs"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
-                    app:layout_constraintTop_toBottomOf="@+id/listListingFoodNameText"/>
+                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/listListingRatingStar"
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/ic_star"
-                    android:backgroundTint="@color/star_yellow"
-                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
-                    app:layout_constraintTop_toBottomOf="@+id/listListingChefNameText"/>
+                <LinearLayout
+                    android:id="@+id/rightLinearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/leftLinearLayout">
 
-                <TextView
-                    android:id="@+id/listListingRatingStarText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="3dp"
-                    android:fontFamily="@font/avenir_400"
-                    android:text="@string/rating_text"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    app:layout_constraintLeft_toRightOf="@+id/listListingRatingStar"
-                    app:layout_constraintTop_toBottomOf="@id/listListingChefNameText"
-                    />
+                    <TextView
+                        android:id="@+id/listListingFoodNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="16dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:fontFamily="@font/open_sans_700"
+                        android:text="@{food.title}"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/listListingTimeImg"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/ic_time"
-                    android:backgroundTint="@color/black"
-                    app:layout_constraintLeft_toRightOf="@+id/listListingCardViewImg"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    <TextView
+                        android:id="@+id/listListingChefNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/avenir_500"
+                        android:text="@string/mora_labs"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/listListingTimeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="11dp"
-                    intToString="@{food.readyInMinutes}"
-                    android:fontFamily="@font/avenir_500"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    app:layout_constraintLeft_toRightOf="@+id/listListingTimeImg"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/listListingRatingStar"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/ic_star"
+                            android:backgroundTint="@color/star_yellow" />
+
+                        <TextView
+                            android:id="@+id/listListingRatingStarText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/avenir_400"
+                            android:text="@string/rating_text"
+                            android:textSize="12sp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/listListingTimeImg"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="17dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/ic_time"
+                            android:backgroundTint="@color/black" />
+
+                        <TextView
+                            android:id="@+id/listListingTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="11dp"
+                            intToString="@{food.readyInMinutes}"
+                            android:fontFamily="@font/avenir_500"
+                            android:textSize="12sp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
